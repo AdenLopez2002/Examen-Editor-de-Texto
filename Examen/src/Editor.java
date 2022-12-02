@@ -22,6 +22,9 @@ public class Editor extends javax.swing.JFrame {
         initComponents();
         //ICONO
         setIconImage(new ImageIcon(getClass().getResource("icono2.png")).getImage());
+        
+        //para busqueda web
+        
     }
 
     /**
@@ -41,9 +44,9 @@ public class Editor extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mi Editor de Texto");
@@ -60,7 +63,7 @@ public class Editor extends javax.swing.JFrame {
         jMenuBar1.setName(""); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(104, 30));
 
-        jMenu1.setText("Archivo");
+        jMenu1.setText("...");
         jMenu1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jMenu1.setMargin(new java.awt.Insets(0, 5, 0, 5));
 
@@ -82,19 +85,13 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Otro");
-        jMenu2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jMenu2.setMargin(new java.awt.Insets(0, 5, 0, 5));
-
-        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.setText("Abrir desde la web");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu1.add(jMenuItem3);
 
         jMenuItem4.setFont(new java.awt.Font("Roboto Light", 2, 12)); // NOI18N
         jMenuItem4.setText("Acerca de...");
@@ -103,8 +100,13 @@ public class Editor extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        jMenu1.add(jMenuItem4);
 
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Otro");
+        jMenu2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jMenu2.setMargin(new java.awt.Insets(0, 5, 0, 5));
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -141,7 +143,13 @@ public class Editor extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        // ABRIR DESDE LA WEB
+        AbrirWeb abrir= new AbrirWeb();
+        abrir.setVisible(true);
+        
+        jTextArea1.append(AbrirWeb.jTextArea1.getText());
+        
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -212,7 +220,7 @@ public class Editor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JMenu jMenu1;
+    public static javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -221,6 +229,6 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
