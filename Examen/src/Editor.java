@@ -2,6 +2,7 @@
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,6 +20,8 @@ public class Editor extends javax.swing.JFrame {
      */
     public Editor() {
         initComponents();
+        //ICONO
+        setIconImage(new ImageIcon(getClass().getResource("icono2.png")).getImage());
     }
 
     /**
@@ -43,13 +46,25 @@ public class Editor extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Mi Editor de Texto");
+        setLocation(new java.awt.Point(300, 150));
+        setPreferredSize(new java.awt.Dimension(400, 500));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jMenu1.setText("Archivo");
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        jMenuBar1.setMinimumSize(new java.awt.Dimension(104, 30));
+        jMenuBar1.setName(""); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(104, 30));
 
+        jMenu1.setText("Archivo");
+        jMenu1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jMenu1.setMargin(new java.awt.Insets(0, 5, 0, 5));
+
+        jMenuItem1.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jMenuItem1.setText("Abrir");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +73,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jMenuItem2.setText("Guardar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +85,8 @@ public class Editor extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Otro");
+        jMenu2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jMenu2.setMargin(new java.awt.Insets(0, 5, 0, 5));
 
         jMenuItem3.setText("jMenuItem3");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +96,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setFont(new java.awt.Font("Roboto Light", 2, 12)); // NOI18N
         jMenuItem4.setText("Acerca de...");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +117,7 @@ public class Editor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
         );
 
         pack();
