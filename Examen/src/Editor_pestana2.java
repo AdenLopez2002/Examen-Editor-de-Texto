@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
  *
  * @author Richard Lopez
  */
-public class Editor extends javax.swing.JFrame {
+public class Editor_pestana2 extends javax.swing.JFrame {
 
     /**
      * Creates new form Editor
      */
-    public Editor() {
+    public Editor_pestana2() {
         initComponents();
         //ICONO
         setIconImage(new ImageIcon(getClass().getResource("icono2.png")).getImage());
@@ -42,6 +42,8 @@ public class Editor extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -53,11 +55,10 @@ public class Editor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mi Editor de Texto");
         setLocation(new java.awt.Point(300, 150));
-        setPreferredSize(new java.awt.Dimension(550, 400));
         setSize(new java.awt.Dimension(500, 400));
 
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -74,6 +75,11 @@ public class Editor extends javax.swing.JFrame {
 
         jLabel1.setText("luna");
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
         jMenuBar1.setMinimumSize(new java.awt.Dimension(104, 30));
@@ -87,6 +93,7 @@ public class Editor extends javax.swing.JFrame {
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jMenu1.setMargin(new java.awt.Insets(0, 5, 0, 5));
 
+        jMenuItem1.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jMenuItem1.setText("Abrir");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +102,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem5.setText("Abrir una segunda pestaña");
+        jMenuItem5.setText("Abrir para una pestaña");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -103,6 +110,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem5);
 
+        jMenuItem2.setFont(new java.awt.Font("Roboto Light", 0, 12)); // NOI18N
         jMenuItem2.setText("Guardar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +127,7 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jMenuItem4.setFont(new java.awt.Font("Roboto Light", 2, 12)); // NOI18N
         jMenuItem4.setText("Acerca de...");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,15 +149,18 @@ public class Editor extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane2)
         );
 
         pack();
@@ -189,6 +200,9 @@ public class Editor extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         //ABRIR , explorador de archivos
+        int op=0;
+        
+        while (op==0){
         int seleccion=jFileChooser1.showOpenDialog(jMenuBar1);
         
         if(seleccion==0){
@@ -210,13 +224,41 @@ public class Editor extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }op++;
         
+        }
+
+        while (op>0&&op<2){
+        int seleccion=jFileChooser1.showOpenDialog(jMenuBar1);
+        
+        if(seleccion==0){
+            try {
+                BufferedReader reader=null;
+                File archivo=jFileChooser1.getSelectedFile();
+                reader = new BufferedReader(new FileReader(archivo));
+                String linea = reader.readLine();
+                
+                while(linea!=null){
+                    jTextArea2.append(linea);
+                    jTextArea2.append(System.getProperty("line.separator"));
+                    linea =reader.readLine();
+                }
+                reader.close();
+                
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }op++;
+        
+        }
+            
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        Editor_pestana2 abrir= new Editor_pestana2();
+        Editor abrir= new Editor();
         abrir.setVisible(true);
         this.setVisible(false);
         
@@ -269,6 +311,8 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
