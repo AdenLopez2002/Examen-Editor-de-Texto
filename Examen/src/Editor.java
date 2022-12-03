@@ -48,6 +48,7 @@ public class Editor extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,6 +120,14 @@ public class Editor extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
+        jMenuItem6.setText("Buscar y reemplazar...");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
         jMenuItem4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jMenuItem4.setText("Acerca de...");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +193,7 @@ public class Editor extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // ACERCA DE
-        jOptionPane1.showMessageDialog(null,"Creado por Aden Ricardo. \n\n//commit numero 1");
+        jOptionPane1.showMessageDialog(null,"\nCreado por Aden Ricardo. \n\n//commit no.1");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -221,6 +230,14 @@ public class Editor extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // ENTRAR A BUSCAR Y REEMPLAZAR
+        Buscar_y_Reemplazar abrir= new Buscar_y_Reemplazar();
+        abrir.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**     * @param args the command line arguments
      */
@@ -266,6 +283,7 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

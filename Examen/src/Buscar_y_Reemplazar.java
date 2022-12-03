@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
  *
  * @author Richard Lopez
  */
-public class Editor_pestana2 extends javax.swing.JFrame {
+public class Buscar_y_Reemplazar extends javax.swing.JFrame {
 
     /**
      * Creates new form Editor
      */
-    public Editor_pestana2() {
+    public Buscar_y_Reemplazar() {
         initComponents();
         //ICONO
         setIconImage(new ImageIcon(getClass().getResource("icono2.png")).getImage());
@@ -41,15 +41,20 @@ public class Editor_pestana2 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextPane1 = new javax.swing.JTextPane();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,27 +63,62 @@ public class Editor_pestana2 extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(500, 400));
 
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
+
+        jLabel2.setText("Palabra a buscar:");
+
+        jTextPane1.setToolTipText("Ingrese la palabra que busca reemplazar.");
+        jScrollPane2.setViewportView(jTextPane1);
+
+        jLabel3.setText("Reemplazo:");
+
+        jTextPane2.setToolTipText("Ingrese la palabra que busca reemplazar.");
+        jScrollPane3.setViewportView(jTextPane2);
+
+        jButton1.setText("Buscar y reemplazar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel1.setText("luna");
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(null));
@@ -101,7 +141,7 @@ public class Editor_pestana2 extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem5.setText("Abrir para una pestaña");
+        jMenuItem5.setText("Abrir una segunda pestaña");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -125,6 +165,14 @@ public class Editor_pestana2 extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
+        jMenuItem6.setText("Salir buscar y reemplazar...");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
         jMenuItem4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jMenuItem4.setText("Acerca de...");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -143,22 +191,16 @@ public class Editor_pestana2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -193,14 +235,11 @@ public class Editor_pestana2 extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // ACERCA DE
-        jOptionPane1.showMessageDialog(null,"Creado por Aden Ricardo. \n\n//commit numero 1");
+        jOptionPane1.showMessageDialog(null,"\nCreado por Aden Ricardo. \n\n//commit no.1");
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         //ABRIR , explorador de archivos
-        int op=0;
-        
-        while (op==0){
         int seleccion=jFileChooser1.showOpenDialog(jMenuBar1);
         
         if(seleccion==0){
@@ -222,45 +261,39 @@ public class Editor_pestana2 extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }op++;
-        
         }
-
-        while (op>0&&op<2){
-        int seleccion=jFileChooser1.showOpenDialog(jMenuBar1);
         
-        if(seleccion==0){
-            try {
-                BufferedReader reader=null;
-                File archivo=jFileChooser1.getSelectedFile();
-                reader = new BufferedReader(new FileReader(archivo));
-                String linea = reader.readLine();
-                
-                while(linea!=null){
-                    jTextArea2.append(linea);
-                    jTextArea2.append(System.getProperty("line.separator"));
-                    linea =reader.readLine();
-                }
-                reader.close();
-                
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Editor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }op++;
-        
-        }
-            
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        Editor abrir= new Editor();
+        Editor_pestana2 abrir= new Editor_pestana2();
         abrir.setVisible(true);
         this.setVisible(false);
         
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // METODO
+        
+        String nombre;
+        String subcadena;
+        
+        nombre=jTextArea1.getText();
+        
+        subcadena= nombre.replace(jTextPane1.getText(),jTextPane2.getText());
+        
+        jTextArea1.setText("");
+        jTextArea1.append(subcadena);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // Salir de buscar y reemplazar
+        Editor abrir= new Editor();
+        abrir.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**     * @param args the command line arguments
      */
@@ -297,8 +330,10 @@ public class Editor_pestana2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     public static javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -306,11 +341,14 @@ public class Editor_pestana2 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
     // End of variables declaration//GEN-END:variables
 }
